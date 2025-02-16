@@ -7,7 +7,7 @@ public class Main {
     //// add a cube in the scene
     Node cube = new Node(); // instanciate a node
     cube.setName("Cube");
-    TransformComponent transform = new TransformComponent(new Vect3(0,0,2), new Vect3()); // give it a position (0,0,2)
+    TransformComponent transform = new TransformComponent(new Vect3(0,0,1), new Vect3()); // give it a position
     cube.addComponent(transform);
     // Define the 8 vertices of the cube
     Vect3 v0 = new Vect3(-0.5f, -0.5f, -0.5f);

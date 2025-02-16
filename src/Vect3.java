@@ -149,6 +149,9 @@ public class Vect3 {
   }
 
   // Functions
+  public static Vect3 sum(Vect3 v1, Vect3 v2){
+    return new Vect3(v1.x+v2.x, v1.y+v2.y, v1.z+v2.z);
+  }
 
   /**
   * Performs element-wise multiplication of two Vect3 vectors.

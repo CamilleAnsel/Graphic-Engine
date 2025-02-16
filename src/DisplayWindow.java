@@ -25,12 +25,19 @@ public class DisplayWindow extends JFrame {
     public void render(ArrayList<Triangle> triangles) {
         Graphics g = canvas.getGraphics();
         int screenWidth = canvas.getWidth();
+        int screenHeight = canvas.getHeight();
         g.setColor(Color.WHITE);
 
         for (Triangle t : triangles) {
             Vect3[] v = t.getVertices();
-            int[] xPoints = {(int) v[0].getX()*screenWidth + 250, (int) v[1].getX()*screenWidth + 250, (int) v[2].getX()*screenWidth + 250};
-            int[] yPoints = {(int) v[0].getY()*screenWidth + 250, (int) v[1].getY()*screenWidth + 250, (int) v[2].getY()*screenWidth + 250};
+            int[] xPoints = {   (int) (v[0].getX()*screenWidth + screenWidth/2),
+                                (int) (v[1].getX()*screenWidth + screenWidth/2),
+                                (int) (v[2].getX()*screenWidth + screenWidth/2)
+            };
+            int[] yPoints = {   (int) (v[0].getY()*screenWidth + screenHeight/2),
+                                (int) (v[1].getY()*screenWidth + screenHeight/2),
+                                (int) (v[2].getY()*screenWidth + screenHeight/2)
+            };
 
             g.drawPolygon(xPoints, yPoints, 3);
         }

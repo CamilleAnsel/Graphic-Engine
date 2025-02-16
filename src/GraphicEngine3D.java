@@ -98,7 +98,7 @@ public class GraphicEngine3D extends AbstractedGraphicEngine {
         }
 
         //// Projection
-        float FOV = (float) (Math.PI * 2 / 3); // 120 degrees field of view
+        float FOV = (float) (Math.PI); // 90 degrees field of view
         int screenWidth = 1; // It's a default value, then we will multiply projectedCoordinates by the screenwidth wen we display
         float d = screenWidth / (2 * FOV); // virtual distance between the screen and the user
 
@@ -110,8 +110,9 @@ public class GraphicEngine3D extends AbstractedGraphicEngine {
                 Vect3[] projectedVertices = new Vect3[3];
 
                 for (int i = 0; i < 3; i++) {
-                    float x = d * vertices[i].getX() / vertices[i].getZ();
-                    float y = d * vertices[i].getY() / vertices[i].getZ();
+                    Vect3 currentVertice = Vect3.sum(vertices[i],renderable.getTransform().getPosition());
+                    float x = d * currentVertice.getX() / currentVertice.getZ(); // becareful division by 0 is not impossible
+                    float y = d * currentVertice.getY() / currentVertice.getZ();
                     projectedVertices[i] = new Vect3(x, y, 0.0f);
                 }
 
